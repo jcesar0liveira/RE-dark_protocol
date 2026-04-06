@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resident Evil - Dark Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Oswald:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tela2.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="decorative-line"></div>
+        
+        <aside class="game-badge">
+            <div class="badge-game">GAME</div>
+            <div class="badge-title">RESIDENT EVIL</div>
+            <div class="badge-subtitle">DARK PROTOCOL</div>
+        </aside>
+
+        <header class="header">
+            <h1 class="page-title">Trailer</h1>
+        </header>
+
+        <main class="content-grid">
+            <nav class="sidebar">
+             <ul>
+                <li><a href="index.html">Início</a></li>
+                <li class="active"><a href="trailer.html">Trailer</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="gameplay.html">Gameplay</a></li>
+                <li><a href="download.html">Baixar</a></li>
+             </ul>
+            </nav>
+
+            <div class="video-section">
+                <div class="video-player" id="videoContainer">
+                    <video id="mainVideo">
+                        <source src="video.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="video-overlay" id="videoOverlay">
+                        <div class="esrb-box">
+                            <div class="esrb-top">MAY CONTAIN CONTENT<br>INAPPROPRIATE FOR CHILDREN</div>
+                            <div class="esrb-bottom">Visit www.esrb.org<br>for rating information</div>
+                        </div>
+                        <div class="play-icon-center"></div>
+                    </div>
+                    <div class="play-icon-small"></div>
+                </div>
+            </div>
+
+            <div class="blood-container">
+                <img src="Captura de tela_6-4-2026_102750_www.canva.com.jpeg" alt="Blood Splatter" class="blood-img">
+            </div>
+        </main>
+
+        <footer class="footer-action">
+            <button class="btn-next">
+                Jogabilidade <span class="arrow-icon">></span>
+            </button>
+        </footer>
+    </div>
+
+    <script>
+        const video = document.getElementById('mainVideo');
+        const overlay = document.getElementById('videoOverlay');
+
+        overlay.addEventListener('click', () => {
+            overlay.style.opacity = '0';
+            setTimeout(() => overlay.style.display = 'none', 300);
+            video.play();
+            video.controls = true;
+        });
+    </script>
+</body>
+</html>
