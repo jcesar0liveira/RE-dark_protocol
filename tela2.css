@@ -1,0 +1,259 @@
+:root {
+    --bg-dark: #070707;
+    --blood-red: #b30000;
+    --interface-white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #fff;
+    font-family: 'Courier Prime', monospace;
+    overflow: hidden; /* Evita scrollbars */
+}
+
+.main-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 5vh 5vw;
+    background: radial-gradient(circle at center, #151515 0%, #000 100%);
+}
+
+.decorative-line {
+    position: absolute;
+    top: 12vh;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #333;
+    border-bottom: 1px dashed #444;
+    z-index: 1;
+}
+
+.game-badge {
+    position: absolute;
+    top: 12vh;      
+    background: #000;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+}
+
+.badge-game { 
+    font-size: 1.2rem; 
+    color: #888; 
+    letter-spacing: 3px; 
+    line-height: 1;
+}
+.badge-title { 
+    font-size: 1.6rem; 
+    font-weight: 700; 
+    margin: 5px 0;
+    line-height: 1;
+}
+.badge-subtitle { 
+    font-size: 1.5rem; 
+    color: #aaa; 
+    line-height: 1;
+}
+.header {
+    position: relative;
+    z-index: 2;
+    margin-top: 2vh;
+}
+
+.page-title {
+    font-family: 'Special Elite', cursive;
+    font-size: clamp(3rem, 8vw, 6rem); 
+    color: #ccc;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+}
+
+/* Grid Principal */
+.content-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60vh;
+    margin-top: 5vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 20%;
+}
+
+.sidebar ul { list-style: none; }
+.sidebar li {
+    font-size: 30px;
+    color: #808080c0; 
+    margin-bottom: 2.5vh;
+    display: flex;
+    align-items: center; 
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar li::before {
+    content: '';
+    width: 10px; 
+    height: 10px;
+    background-color: var(--blood-red);
+    border-radius: 50%;
+    margin-right: 15px;
+    opacity: 0.5; 
+    flex-shrink: 0; 
+}
+.sidebar li a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+.sidebar li:hover {
+    color: #fff;
+}
+
+.sidebar li:hover::before {
+    opacity: 1; 
+    box-shadow: 0 0 8px var(--blood-red); 
+}
+
+.sidebar li.active {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
+
+.sidebar li.active::before {
+    opacity: 1;
+}
+.video-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.video-player {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border: 4px solid #fff;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.esrb-box {
+    width: 70%;
+    height: 60%;
+    border: 3px solid #fff;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.esrb-top {
+    background: #fff; color: #000; flex: 1.2;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; font-weight: 700; font-size: 1.4vw;
+}
+
+.esrb-bottom {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    text-align: center; font-size: 1vw;
+}
+
+.play-icon-center {
+    position: absolute;
+    width: 60px; height: 60px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+}
+
+.play-icon-center::after {
+    content: ''; border-left: 15px solid #fff;
+    border-top: 10px solid transparent; border-bottom: 10px solid transparent;
+    margin-left: 5px; display: block;
+}
+
+.play-icon-small {
+    position: absolute; bottom: 15px; left: 15px;
+    width: 30px; height: 30px; background: #fff;
+    border-radius: 50%; z-index: 6;
+}
+
+.blood-container {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.blood-img {
+    position: absolute; 
+    top: calc(18vh + 30px); 
+    right: 8%; 
+    width: 200px; 
+    z-index: 5;
+    pointer-events: none; 
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+}
+
+.footer-action {
+    position: absolute;
+    bottom: 5vh;
+    right: 5vw;
+}
+
+.btn-next {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
+    transition: transform 0.2s;
+}
+
+.btn-next:hover { transform: scale(1.05); }
+
+.arrow-icon {
+    background: #000; color: #fff;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center; align-items: center;
+    margin-left: 20px;
+}
